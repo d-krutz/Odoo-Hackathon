@@ -1,0 +1,113 @@
+/* Minimalist Dashboard Style */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f4f6f8;
+  font-family: 'Inter', sans-serif;
+}
+
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.dashboard-card {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 500px;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.dashboard-header h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.points {
+  color: #888;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.dashboard-buttons-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 30px;
+  align-items: stretch;
+}
+.dashboard-tile {
+  padding: 14px 18px;
+  background-color: #f9fafc;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dashboard-tile:hover {
+  background-color: #eaf0f6;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.logout-tile {
+  background-color: #fbeaea;
+  border-color: #f1c0c0;
+  color: #c0392b;
+}
+
+.logout-tile:hover {
+  background-color: #f5d7d7;
+}
+
+
+.dashboard-tile {
+  background-color: #f9fafc;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.dashboard-tile:hover {
+  background-color: #eaf0f6;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+.logout-button {
+  margin-top: 30px;
+  width: 100%;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #e74c3c;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.logout-button:hover {
+  background-color: #c0392b;
+}

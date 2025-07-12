@@ -1,0 +1,71 @@
+/* src/styles/PageLayout.css */
+
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding-top: 60px;
+  background-color: #f4f6f8;
+  font-family: 'Inter', sans-serif;
+}
+
+.page-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 500px;
+}
+
+.page-card h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.page-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.page-card li {
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+}
+
+.input-field {
+  padding: 10px;
+  font-size: 15px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.action-button {
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 15px;
+  border: none;
+  background-color: #f1f3f5;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-right: 10px;
+}
+
+.action-button:hover {
+  background-color: #e4e6e9;
+}
+
+.action-button.delete {
+  background-color: #ffeaea;
+  color: #b33939;
+}
+
+.action-button.edit {
+  background-color: #e0f7fa;
+  color: #333;
+}
