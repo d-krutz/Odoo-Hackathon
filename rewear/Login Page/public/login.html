@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SilkStreet - Login</title>
+    <style>
+    body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to right, #ff6b6b, #6b6b6b);
+    color: #fff;
+}
+
+.background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+}
+
+.login-container {
+    position: relative;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 400px;
+}
+
+h1 {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: bold;
+    color: #555;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-size: 1.2em;
+}
+
+button {
+    background-color: #1abc9c;
+    color: #fff;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+button:hover {
+    background-color: #16a085;
+}
+
+.slogan {
+    margin-top: 20px;
+    color: #555;
+    font-size: 1.1em;
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 600px) {
+    .login-container {
+        width: 80%;
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .login-container {
+        width: 90%;
+        padding: 10px;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <img class="background-image" src="https://img.freepik.com/free-vector/ecommerce-web-store-hand-drawn-illustration_107791-10966.jpg?w=1380&t=st=1705053804~exp=1705054404~hmac=3d26658351cfcf2fe61d50d8ee967ef1aa692b0b65c1bdcb2c925331dbcea4d8" alt="Background Image">
+    </div>
+
+    <div class="login-container">
+        <h1>SilkStreet</h1>
+        <form>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your email or Mobile number" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p class="slogan">Step into Style, Login with a Smile</p>
+    </div>
+</body>
+</html>
