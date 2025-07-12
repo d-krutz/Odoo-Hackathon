@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+// src/pages/ManageAddressPage.js
+import React, { useEffect, useState } from "react";
 import "../pages/PageLayout.css";
 
 const ManageAddressPage = () => {
-  const [addresses, setAddresses] = useState([
-    "123 Marineford Road, Goa Kingdom",
-  ]);
+  const [addresses, setAddresses] = useState([]);
   const [newAddress, setNewAddress] = useState("");
   const [editingIndex, setEditingIndex] = useState(null);
+
+  useEffect(() => {
+    // Replace with API call to fetch user's addresses
+    setAddresses(["123 Marineford Road, Goa Kingdom"]);
+  }, []);
 
   const handleAddOrUpdate = () => {
     if (!newAddress.trim()) return;
@@ -17,6 +21,7 @@ const ManageAddressPage = () => {
     } else {
       updated.push(newAddress);
     }
+
     setAddresses(updated);
     setNewAddress("");
     setEditingIndex(null);
@@ -46,14 +51,17 @@ const ManageAddressPage = () => {
           onChange={(e) => setNewAddress(e.target.value)}
         />
 
-        <button className="action-button" onClick={handleAddOrUpdate}>
+        <button
+          className="action-button"
+          onClick={handleAddOrUpdate}
+        >
           {editingIndex !== null ? "Update Address" : "Add Address"}
         </button>
 
-        <ul style={{ marginTop: "20px" }}>
+        <ul className="address-list" style={{ marginTop: "20px" }}>
           {addresses.map((address, index) => (
-            <li key={index}>
-               {address}
+            <li key={index} className="address-item">
+              <div>{address}</div>
               <div style={{ marginTop: "8px" }}>
                 <button
                   className="action-button edit"

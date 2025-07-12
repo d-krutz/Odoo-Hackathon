@@ -1,17 +1,45 @@
-import React from "react";
+// src/pages/UserPage.js
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./UserPage.css";
 
 const UserPage = () => {
-  const username = "Ayush Patel";
-  const points = 120;
+  const [username, setUsername] = useState("Loading...");
+  const [points, setPoints] = useState(0);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const fetchUserInfo = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) return navigate("/login");
+
+      try {
+        const res = await fetch("http://localhost:5000/api/users/me", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        const data = await res.json();
+        if (res.ok) {
+          setUsername(data.name);
+          setPoints(data.points || 0);
+        } else {
+          navigate("/login");
+        }
+      } catch (err) {
+        console.error("Failed to load user:", err);
+        navigate("/login");
+      }
+    };
+
+    fetchUserInfo();
+  }, [navigate]);
+
   const handleLogout = () => {
-    // Example logout logic: clear localStorage/session and redirect
     localStorage.clear();
     sessionStorage.clear();
-    navigate("/login"); // redirect to login page or homepage
+    navigate("/login");
   };
 
   return (
@@ -31,7 +59,6 @@ const UserPage = () => {
           <Link to="/wishlist" className="dashboard-tile"> Wishlist</Link>          
           <button className="dashboard-tile logout-tile" onClick={handleLogout}> Logout</button>
         </div>
-
       </div>
     </div>
   );

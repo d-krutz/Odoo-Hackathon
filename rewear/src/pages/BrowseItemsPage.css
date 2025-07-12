@@ -1,0 +1,89 @@
+.browse-container {
+  padding: 40px 20px;
+  font-family: 'Inter', sans-serif;
+  background-color: #f4f6f8;
+  text-align: center;
+}
+
+.browse-container h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+.browse-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.browse-card {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  text-align: center;
+  text-decoration: none;
+   display: flex;
+  flex-direction: column;
+}
+.browse-card a{
+  text-decoration: none;
+}
+
+.browse-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  
+}
+
+.browse-card h4 {
+  font-size: 16px;
+  margin: 6px 0;
+  color: #333;
+}
+
+.browse-card p {
+  
+  font-size: 14px;
+  color: #555;
+}
+.wishlist-btn {
+  text-decoration: none;
+  margin-top: 10px;
+  margin-right: 4px;
+  padding: 8px 12px;
+  background-color: #fff0f3;
+  color: #d6336c;
+  border: 1px solid #f3b6c1;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.wishlist-btn:hover {
+  background-color: #fce4ec;
+}
+.buy-btn {
+  text-decoration: none;
+  margin-top: 8px;
+  padding: 8px 12px;
+  background-color: #e6f4ea;
+  color: #188038;
+  border: 1px solid #c7e0cb;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: inline-block;
+  margin-left: 2px;
+}
+
+.buy-btn:hover {
+  background-color: #d2f0d7;
+}

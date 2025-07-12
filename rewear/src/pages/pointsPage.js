@@ -1,34 +1,74 @@
-import React from "react";
+// src/pages/PointsPage.js
+import React, { useEffect, useState } from "react";
 import "../pages/PageLayout.css";
 
 const PointsPage = () => {
-  const username = "SarahK";
-  const totalPoints = 45;
+  const [username, setUsername] = useState("");
+  const [totalPoints, setTotalPoints] = useState(0);
+  const [pointHistory, setPointHistory] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const pointHistory = [
-    { type: "gain", action: "Listed item: Blue Jacket", points: 5 },
-    { type: "gain", action: "Item redeemed by another user", points: 20 },
-    { type: "spend", action: "Redeemed: Green T-shirt", points: -20 },
-  ];
+  useEffect(() => {
+    const fetchPoints = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) return alert("Please log in to view your points.");
+
+      try {
+        const res = await fetch("http://localhost:5000/api/users/me/points", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          setUsername(data.name);
+          setTotalPoints(data.points);
+          setPointHistory(data.history); // Assuming backend returns `history` array
+        } else {
+          alert("Failed to load points");
+        }
+      } catch (err) {
+        console.error("Error loading points:", err);
+        alert("Network error");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPoints();
+  }, []);
 
   return (
     <div className="page-container">
       <div className="page-card">
         <h2>Points Dashboard</h2>
-        <p style={{ fontSize: "16px", marginBottom: "10px" }}>👤 Username: {username}</p>
-        <div style={{ fontSize: "24px", fontWeight: "600", marginBottom: "20px" }}>
-          🏅 Points Balance: {totalPoints} Points
-        </div>
 
-        <h4 style={{ marginBottom: "10px" }}>📄 Recent Activity</h4>
-        <ul>
-          {pointHistory.map((entry, idx) => (
-            <li key={idx}>
-              {entry.points > 0 ? "➕" : "➖"} {entry.action} —{" "}
-              <strong>{entry.points > 0 ? "+" : ""}{entry.points}</strong>
-            </li>
-          ))}
-        </ul>
+        {loading ? (
+          <p>Loading points...</p>
+        ) : (
+          <>
+            <p style={{ fontSize: "16px", marginBottom: "10px" }}>👤 Username: {username}</p>
+            <div style={{ fontSize: "24px", fontWeight: "600", marginBottom: "20px" }}>
+              🏅 Points Balance: {totalPoints} Points
+            </div>
+
+            <h4 style={{ marginBottom: "10px" }}>📄 Recent Activity</h4>
+            <ul>
+              {pointHistory.length > 0 ? (
+                pointHistory.map((entry, idx) => (
+                  <li key={idx}>
+                    {entry.points > 0 ? "➕" : "➖"} {entry.action} —{" "}
+                    <strong>{entry.points > 0 ? "+" : ""}{entry.points}</strong>
+                  </li>
+                ))
+              ) : (
+                <li>No point transactions yet.</li>
+              )}
+            </ul>
+          </>
+        )}
 
         <hr style={{ margin: "30px 0" }} />
 
