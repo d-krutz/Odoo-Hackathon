@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import UserPage from "./pages/UserPage";
+import WishlistPage from "./pages/WishlistPage";
+import OrderListPage from "./pages/OrderListPage";
+import EditProfilePage from "./pages/EditProfilePage";
+import ManageAddressPage from './pages/ManageAddressPage';
+import PointsPage from "./pages/pointsPage";
+import MyListingPage from "./pages/MyListingPage";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<UserPage />} />
+        <Route path="/wishlist" element={<WishlistPage />} />
+        <Route path="/orders" element={<OrderListPage />} />
+        <Route path="/edit-profile" element={<EditProfilePage />} />
+        <Route path="/manage-address" element={<ManageAddressPage />} />
+        <Route path="/points" element={<PointsPage/>}/>
+        <Route path="/my-listings" element={<MyListingPage />} />
+        
+      </Routes>
+    </Router>
   );
 }
 
